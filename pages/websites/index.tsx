@@ -14,7 +14,7 @@ type WebsitesPageType = {
 };
 export default function WebsitesPage({ websites }: WebsitesPageType) {
   return (
-    <div>
+    <div className="grid grid-cols-4">
       {websites.map((w, i) => (
         <Website
           key={`website-${i}`}

@@ -1,4 +1,4 @@
 type PinsPageType = {};
 export default function PinsPage({}: PinsPageType) {
-  return "PinsPage";
+  return <main>PinsPage</main>;
 }

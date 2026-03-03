@@ -1,13 +1,14 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tailwindcss";
+@import "./fonts.css";
+@import "./forms.css";
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-dark: #222222;
+  --color-light: #f8f8f8;
+  --color-soft: #ededed;
+  --color-medium: #3e3e3e;
+  --color-medium-light: #4e4e4e;
+  --color-white: #ffffff;
 }
 
 html,
@@ -17,17 +18,17 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  flex-grow: 1;
+}
+
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 a {
@@ -35,8 +36,10 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+img {
+  width: 100%;
+}
+
+.material-symbols-outlined {
+  font-size: 20px;
 }

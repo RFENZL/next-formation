@@ -1,0 +1,10 @@
+input {
+  border: none;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}

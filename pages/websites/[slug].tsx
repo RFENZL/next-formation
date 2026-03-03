@@ -1,3 +1,4 @@
+import WebsiteHeader from "@/components/ui/WebsiteHeader";
 import { WebsiteType } from "@/types/Website";
 
 export async function getStaticPaths() {
@@ -28,8 +29,8 @@ type WebsitePageType = {
 
 export default function WebsitePage({ website }: WebsitePageType) {
   return (
-    <div>
-      <h1>{website.title}</h1>
-    </div>
+    <main>
+      <WebsiteHeader website={website} />
+    </main>
   );
 }

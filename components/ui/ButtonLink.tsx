@@ -11,12 +11,12 @@ type ButtonLinkType = {
 
 const buttonClasses = {
   dark: {
-    filled: "bg-dark text-white rounded-lg",
+    filled: "bg-dark text-white! rounded-lg",
     outline: "border border-dark text-dark! rounded-lg",
     link: "text-dark",
   },
   light: {
-    filled: "bg-white text-dark rounded-lg",
+    filled: "bg-white text-dark! rounded-lg",
     outline: "border border-medium-light text-white! rounded-lg ",
     link: "text-light",
   },

@@ -43,3 +43,7 @@ img {
 .material-symbols-outlined {
   font-size: 20px;
 }
+
+.material-symbols-filled {
+  font-variation-settings: "FILL" 1;
+}

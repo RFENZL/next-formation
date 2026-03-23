@@ -2,9 +2,10 @@ import { ButtonLink } from "../ui/ButtonLink";
 import Logo from "../ui/Logo";
 
 type SiteMenuType = {
-  slug: string;
+  link?: string | null;
+  target?: string | null;
 };
-export default function SiteMenu({ slug }: SiteMenuType) {
+export default function SiteMenu({ link, target }: SiteMenuType) {
   return (
     <nav className="fixed bottom-3 left-1/2 -translate-x-1/2 bg-medium rounded-md p-2 z-90">
       <ul className="flex items-stretch gap-2">
@@ -16,11 +17,13 @@ export default function SiteMenu({ slug }: SiteMenuType) {
             Voir les sites
           </ButtonLink>
         </li>
-        <li>
-          <ButtonLink href={`/websites/${slug}`} color="light">
-            Voir le site
-          </ButtonLink>
-        </li>
+        {link && (
+          <li>
+            <ButtonLink href={link} color="light" target={target ?? undefined}>
+              Voir le site
+            </ButtonLink>
+          </li>
+        )}
       </ul>
     </nav>
   );

@@ -1,7 +1,26 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Logo from "../ui/Logo";
 
 export default function Header() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [tag, setTag] = useState("");
+
+  useEffect(() => {
+    setTag("");
+  }, [pathname]);
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (tag.trim()) {
+      router.push(`/search?tag=${encodeURIComponent(tag.trim())}`);
+    }
+  }
+
   return (
     <header className="flex items-center gap-5 py-8 px-6">
       <Logo />
@@ -17,6 +36,7 @@ export default function Header() {
           <li className="hidden md:block flex-1">
             <form
               role="search"
+              onSubmit={handleSubmit}
               className="w-full flex gap-2 items-center bg-soft rounded-md p-2"
             >
               <button type="submit" className="flex">
@@ -24,6 +44,8 @@ export default function Header() {
               </button>
               <input
                 type="search"
+                value={tag}
+                onChange={(e) => setTag(e.target.value)}
                 placeholder="Rechercher par tags"
                 className="flex-1"
               />

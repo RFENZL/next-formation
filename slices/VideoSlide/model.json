@@ -1,0 +1,26 @@
+{
+  "id": "video_slide",
+  "type": "SharedSlice",
+  "name": "VideoSlide",
+  "description": "VideoSlide",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "video": {
+          "type": "Text",
+          "config": {
+            "label": "Video",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

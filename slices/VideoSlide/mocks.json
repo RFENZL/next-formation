@@ -1,0 +1,14 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"video": {
+				"__TYPE__": "FieldContent",
+				"value": "flew",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

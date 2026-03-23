@@ -1,19 +1,26 @@
-import { WebsiteType } from "@/types/Website";
-import Image from "next/image";
+import { WebsiteDocument } from "@/prismicio-types";
+import { PrismicImage } from "@prismicio/react";
 import Link from "next/link";
 
-export default function Website({ website }: { website: WebsiteType }) {
+export default function Website({ website }: { website: WebsiteDocument }) {
   return (
-    <Link href={`websites/${website.slug}`}>
+<<<<<<< Updated upstream
+    <Link href={`websites/${website.uid}`}>
+      <div className="relative">
+        <PrismicImage
+          field={website.data.img}
+=======
+    <Link href={`/websites/${website.slug}`}>
       <div className="relative">
         <Image
           src={`/websites/${website.thumbnail}`}
           alt={`Image ${website.title}`}
-          width="900"
-          height="600"
+          width={900}
+          height={600}
+>>>>>>> Stashed changes
           className="rounded-lg"
         />
-        <h3 className="mt-4">{website.title}</h3>
+        <h3 className="mt-4">{website.data.title}</h3>
       </div>
     </Link>
   );

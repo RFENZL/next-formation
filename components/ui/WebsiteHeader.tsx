@@ -36,20 +36,8 @@ export default function WebsiteHeader({
             )}
           </div>
         </header>
-<<<<<<< Updated upstream
         <Link href={`/websites/${website.uid}`}>
           <PrismicImage field={website.data.img} className="rounded-lg" />
-=======
-        <Link href={`/websites/${website.slug}`}>
-          <Image
-            src={`/websites/${website.thumbnail}`}
-            alt={`Image ${website.title}`}
-            width={1800}
-            height={900}
-            className="rounded-lg"
-            loading="eager"
-          />
->>>>>>> Stashed changes
         </Link>
       </div>
       <SiteMenu

@@ -1,3 +1,10 @@
+import Title from "@/components/ui/Title";
+import SavedWebsites from "./_components/SavedWebsites";
+
 export default function PinsPage() {
-  return <main>PinsPage</main>;
+  return (
+    <main>
+      <SavedWebsites />
+    </main>
+  );
 }

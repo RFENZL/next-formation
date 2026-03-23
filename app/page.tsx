@@ -6,6 +6,11 @@ import WebsiteHeader from "@/components/ui/WebsiteHeader";
 import { createClient } from "@/prismicio";
 import type * as prismic from "@prismicio/client";
 
+export const metadata = {
+  title: "Titre de la page",
+  description: "Description de la page",
+};
+
 export default async function HomePage() {
   const client = createClient();
   let websites: prismic.Content.WebsiteDocument[] = [];

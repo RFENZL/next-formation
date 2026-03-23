@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Logo from "../ui/Logo";
+import { useWebsitesStore } from "@/store/websites.store";
 
 export default function Header() {
+  const websites = useWebsitesStore((state) => state.websites);
   const router = useRouter();
   const pathname = usePathname();
   const [tag, setTag] = useState("");
@@ -53,7 +55,7 @@ export default function Header() {
           </li>
           <li>
             <Link href="/pins" className="flex items-center">
-              13
+              {websites.length}
               <span className="material-symbols-outlined">keep</span>
             </Link>
           </li>

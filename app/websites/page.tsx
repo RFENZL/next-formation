@@ -1,11 +1,13 @@
 import Title from "@/components/ui/Title";
+import WebsitesList from "@/components/ui/WebsitesList";
 import { createClient } from "@/prismicio";
-import WebsitesList from "./_components/WebsitesList";
 
 export default async function WebsitesPage() {
   const client = createClient();
   const websites = await client.getAllByType("website", {
-    orderings: [{ field: "document.first_publication_date", direction: "desc" }],
+    orderings: [
+      { field: "document.first_publication_date", direction: "desc" },
+    ],
   });
 
   return (

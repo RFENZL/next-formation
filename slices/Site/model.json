@@ -1,0 +1,18 @@
+{
+  "id": "site",
+  "type": "SharedSlice",
+  "name": "Site",
+  "description": "Site",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

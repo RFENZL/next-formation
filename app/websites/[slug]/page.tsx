@@ -6,12 +6,16 @@ import ImagesSlice from "@/slices/ImagesSlice";
 import VideoSlide from "@/slices/VideoSlide";
 
 export async function generateStaticParams() {
-  const client = createClient();
-  const websites = await client.getAllByType("website");
+  try {
+    const client = createClient();
+    const websites = await client.getAllByType("website");
 
-  return websites.map((w) => ({
-    slug: w.uid,
-  }));
+    return websites.map((w) => ({
+      slug: w.uid,
+    }));
+  } catch {
+    return [];
+  }
 }
 
 type WebsitePageType = {

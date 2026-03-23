@@ -6,7 +6,13 @@ import { isFilled } from "@prismicio/client";
 
 export default async function Footer() {
   const client = createClient();
-  const menu = await client.getSingle("menu");
+  let menu = null;
+
+  try {
+    menu = await client.getSingle("menu");
+  } catch {
+    menu = null;
+  }
 
   return (
     <footer className="px-6 py-12">

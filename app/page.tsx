@@ -4,19 +4,29 @@ import Video from "@/components/ui/Video";
 import Website from "@/components/ui/Website";
 import WebsiteHeader from "@/components/ui/WebsiteHeader";
 import { createClient } from "@/prismicio";
+import type * as prismic from "@prismicio/client";
 
 export default async function HomePage() {
   const client = createClient();
-  const websites = await client.getAllByType("website", {
-    limit: 4,
-    orderings: [
-      { field: "document.first_publication_date", direction: "desc" },
-    ],
-  });
+  let websites: prismic.Content.WebsiteDocument[] = [];
+
+  try {
+    websites = await client.getAllByType("website", {
+      limit: 4,
+      orderings: [
+        { field: "document.first_publication_date", direction: "desc" },
+      ],
+    });
+  } catch {
+    websites = [];
+  }
+
+  const featuredWebsite = websites[0];
+  const latestWebsites = websites.slice(1, 4);
 
   return (
     <main>
-      <WebsiteHeader website={websites[0]} />
+      {featuredWebsite && <WebsiteHeader website={featuredWebsite} />}
 
       <div className="bg-white px-6 py-12">
         <Title
@@ -27,11 +37,9 @@ export default async function HomePage() {
           Sites web
         </Title>
         <div className="grid md:grid-cols-3 gap-4 pt-12">
-          {websites
-            .filter((_, i) => i > 0 && i <= 3)
-            .map((w, i) => (
-              <Website key={`website-${i}`} website={w} />
-            ))}
+          {latestWebsites.map((w, i) => (
+            <Website key={`website-${i}`} website={w} />
+          ))}
         </div>
         <footer className="pt-12 flex justify-center">
           <ButtonLink href="/websites" variant="link">
